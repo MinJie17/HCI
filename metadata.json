@@ -1,5 +1,5 @@
 {
-  "name": "QIU SkillSwap",
+  "name": "QIU SkillLink",
   "description": "Student Skill Exchange Platform for university peers to trade skills, schedule slots, chat, and learn together.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

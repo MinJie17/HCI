@@ -74,7 +74,7 @@ export default function Navbar({
               <span>Q</span>
             </div>
             <span className="font-display font-extrabold text-xl tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              QIU SkillSwap
+              QIU SkillLink
             </span>
           </div>
 

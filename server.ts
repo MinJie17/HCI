@@ -59,12 +59,12 @@ app.post("/api/recommend", async (req, res) => {
           nextSteps: "Practice vocal modulation with Jason Raj or dry-run slides to build confident body posture."
         }
       ],
-      aiTips: "Tip (API Key Missing): Make sure to check standard visual hierarchies and seek peer help in the QIU SkillSwap Discussion board!"
+      aiTips: "Tip (API Key Missing): Make sure to check standard visual hierarchies and seek peer help in the QIU SkillLink Discussion board!"
     });
   }
 
   try {
-    const prompt = `You are a helpful academic peer-advisor bot for 'QIU SkillSwap', a collaborative university peer-learning portal.
+    const prompt = `You are a helpful academic peer-advisor bot for 'QIU SkillLink', a collaborative university peer-learning portal.
 Given a student's interests and learning goals, recommend 2 relevant skill categories from this list:
 [Programming, Graphic Design, Video Editing, Public Speaking, Photography, Language Learning, Microsoft Excel, Canva Design, PowerPoint Presentation, UI/UX Design].
 

@@ -170,7 +170,7 @@ export default function MessagingUI({
                       </div>
                     </div>
                   </div>
-                  <span className="text-[10px] text-slate-400 font-semibold px-2 py-1 bg-slate-50 dark:bg-slate-900 rounded-lg">SkillSwap Room</span>
+                  <span className="text-[10px] text-slate-400 font-semibold px-2 py-1 bg-slate-50 dark:bg-slate-900 rounded-lg">SkillLink Room</span>
                 </div>
 
                 {/* Messages stream box */}

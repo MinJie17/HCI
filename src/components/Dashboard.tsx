@@ -24,6 +24,8 @@ interface DashboardProps {
   onCancelSession: (sessionId: string) => void;
   onTriggerFeedback: (sessionId: string) => void;
   isDarkMode: boolean;
+  onNavigateToBecomeTutor?: () => void;
+  hasTutorProfile?: boolean;
 }
 
 export default function Dashboard({
@@ -32,7 +34,9 @@ export default function Dashboard({
   onNavigateToProfile,
   onCancelSession,
   onTriggerFeedback,
-  isDarkMode
+  isDarkMode,
+  onNavigateToBecomeTutor,
+  hasTutorProfile = false
 }: DashboardProps) {
   // AI recommendations state
   const [aiInterests, setAiInterests] = useState("");
@@ -92,6 +96,35 @@ export default function Dashboard({
         <div className="mb-8">
           <h1 className="text-3xl font-display font-extrabold tracking-tight">Student Dashboard</h1>
           <p className="text-sm text-slate-500 mt-2">Track your upcoming collaborative sessions, manage saved mentors, or seek conversational Gemini Recommendations.</p>
+        </div>
+
+        {/* Tutor Program Status Banner Card */}
+        <div className={`p-5 mb-8 rounded-2xl border bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-transparent flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all ${
+          isDarkMode ? "border-slate-800" : "border-indigo-150/40 shadow-xs"
+        }`}>
+          <div>
+            <div className="flex items-center space-x-1.5 text-indigo-600 dark:text-indigo-400">
+              <Sparkles className="w-4 h-4 text-purple-500 animate-spin" />
+              <span className="font-bold text-[10px] uppercase tracking-wider">QIU SkillLink Exchange Alliance</span>
+            </div>
+            {hasTutorProfile ? (
+              <>
+                <h3 className="text-base font-display font-extrabold mt-1.5">You are registered as an Active Scholar-Tutor! 🎓</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Classmates can view your available calendar slots on the directory page. Click below to manage or update your listing.</p>
+              </>
+            ) : (
+              <>
+                <h3 className="text-base font-display font-extrabold mt-1.5">Share your knowledge & master your craft! 🚀</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Submit your custom skills, bio, and availability hours to register your personal tutor listing on our peer active-search catalog.</p>
+              </>
+            )}
+          </div>
+          <button
+            onClick={onNavigateToBecomeTutor}
+            className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs transition-all shadow-md shrink-0 cursor-pointer"
+          >
+            {hasTutorProfile ? "Edit My Tutor Profile" : "Become a Peer Tutor"}
+          </button>
         </div>
 
         {/* Top progression metrics counters */}

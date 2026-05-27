@@ -41,7 +41,7 @@ export default function AuthOnboarding({
 
   const tourStepsList = [
     {
-      title: "Welcome to QIU SkillSwap! 🎓",
+      title: "Welcome to QIU SkillLink! 🎓",
       description: "This interactive guide will walk you through our standard peer-to-peer exchange flow. Learn skills directly from high-achieving classmates!",
       actionLabel: "Start Tour Guide"
     },
@@ -105,7 +105,7 @@ export default function AuthOnboarding({
 
             <div className="text-center mb-6">
               <span className="font-display font-extrabold text-xl tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                QIU SkillSwap
+                QIU SkillLink
               </span>
               <p className="text-slate-400 text-xs mt-1">Quest International University peer access</p>
             </div>
@@ -158,7 +158,7 @@ export default function AuthOnboarding({
               </button>
 
               <p className="text-center text-[10px] text-slate-400 mt-4 leading-normal">
-                New to Campus Swap? Sign up with your university registrar registration block automatically.
+                New to QIU SkillLink? Sign in using your student credentials to verify and link your profile automatically.
               </p>
             </form>
           </div>
@@ -174,7 +174,7 @@ export default function AuthOnboarding({
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-1.5 text-indigo-600 dark:text-indigo-400">
                 <Sparkles className="w-4 h-4 text-purple-500 animate-spin" />
-                <span className="font-bold text-[10px] uppercase tracking-wider">QIU SkillSwap Interactive Academy Tour</span>
+                <span className="font-bold text-[10px] uppercase tracking-wider">QIU SkillLink Interactive Academy Tour</span>
               </div>
               <button
                 onClick={onCloseTour}

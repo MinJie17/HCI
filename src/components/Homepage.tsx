@@ -363,7 +363,7 @@ export default function Homepage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-4 gap-8">
           <div className="sm:col-span-2">
             <span className="font-display font-extrabold text-lg text-slate-900 dark:text-white">
-              QIU SkillSwap
+              QIU SkillLink
             </span>
             <p className="text-xs mt-2 max-w-sm leading-relaxed">
               Quest International University design-approved academic exchange program built by students for students. Powered by Gemini AI recommendations and built with robust Human-Computer Interaction principles.
@@ -395,7 +395,7 @@ export default function Homepage({
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-[10px] mt-8 pt-4 border-t border-slate-100 dark:border-slate-800">
-          &copy; {new Date().getFullYear()} QIU SkillSwap. Quest International University. All rights reserved. Made under strict HCI standards.
+          &copy; {new Date().getFullYear()} QIU SkillLink. Quest International University. All rights reserved. Made under strict HCI standards.
         </div>
       </footer>
     </div>

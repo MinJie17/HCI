@@ -85,7 +85,7 @@ export default function FeedbackPage({
             </div>
             <h2 className="text-xl font-display font-extrabold">Peer Review Submitted!</h2>
             <p className="text-slate-500 dark:text-slate-400 text-xs mt-2 leading-relaxed">
-              Thank you for providing constructive feedback! Your rating has been integrated into their biography score. This helps verify trust and high standards in QIU SkillSwap.
+              Thank you for providing constructive feedback! Your rating has been integrated into their biography score. This helps verify trust and high standards in QIU SkillLink.
             </p>
             <button
               onClick={onCancel}

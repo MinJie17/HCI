@@ -9,6 +9,7 @@ import MessagingUI from "./components/MessagingUI";
 import FeedbackPage from "./components/FeedbackPage";
 import Dashboard from "./components/Dashboard";
 import AuthOnboarding from "./components/AuthOnboarding";
+import BecomeTutor from "./components/BecomeTutor";
 import { Tutor, Review, Session, CommunityPost, ChatThread, Message } from "./types";
 import { INITIAL_TUTORS, INITIAL_REVIEWS, INITIAL_POSTS, INITIAL_THREADS } from "./data";
 
@@ -79,9 +80,10 @@ export default function App() {
     "Faiz published a new UI/UX checklist on the discussion board."
   ]);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isTourActive, setIsTourActive] = useState(false);
+  const [isTourActive, setIsTourActive] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Logged in as student MinJie by default
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [userTutorProfile, setUserTutorProfile] = useState<Tutor | null>(null);
 
   // Navigate handler that wraps cleanup of preselection parameters
   const handleNavigate = (view: string) => {
@@ -90,6 +92,19 @@ export default function App() {
       setPreselectedSearchText(undefined);
     }
     setCurrentView(view);
+  };
+
+  const handleSaveTutorProfile = (updatedProfile: Tutor) => {
+    setUserTutorProfile(updatedProfile);
+    setTutors(prev => {
+      const exists = prev.some(t => t.id === updatedProfile.id);
+      if (exists) {
+        return prev.map(t => t.id === updatedProfile.id ? updatedProfile : t);
+      } else {
+        return [updatedProfile, ...prev];
+      }
+    });
+    setNotifications(prev => ["Congratulations! Your dynamic peer tutor listing is now live! 🎓", ...prev]);
   };
 
   const currentActiveTutorObj = tutors.find(t => t.id === activeTutorId) || tutors[0];
@@ -458,8 +473,8 @@ export default function App() {
                 setIsLoginOpen(true);
                 setNotifications(prev => ["Please sign in to register as a custom peer tutor!", ...prev]);
               } else {
-                handleNavigate("dashboard");
-                setNotifications(prev => ["Welcome to your portal! Complete your professional listing below.", ...prev]);
+                handleNavigate("become-tutor");
+                setNotifications(prev => ["Create or update your peer tutor listing here! 🎓", ...prev]);
               }
             }}
             isDarkMode={isDarkMode}
@@ -539,6 +554,17 @@ export default function App() {
             onNavigateToProfile={handleViewTutorProfile}
             onCancelSession={handleCancelSession}
             onTriggerFeedback={handleTriggerFeedback}
+            isDarkMode={isDarkMode}
+            onNavigateToBecomeTutor={() => handleNavigate("become-tutor")}
+            hasTutorProfile={!!userTutorProfile}
+          />
+        )}
+
+        {currentView === "become-tutor" && (
+          <BecomeTutor
+            existingTutor={userTutorProfile}
+            onSaveTutor={handleSaveTutorProfile}
+            onCancel={() => handleNavigate("dashboard")}
             isDarkMode={isDarkMode}
           />
         )}
